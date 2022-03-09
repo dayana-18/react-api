@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 import './App.css';
+import Accueil from './pages/accueil';
+import Favoris from './pages/favoris';
+import Contact from './pages/contact';
+import Navbar from "./components/Navbar";
+import {ThemeProvider} from "styled-components";
+import { GlobalStyles } from "./components/globalStyles";
+import { lightTheme, darkTheme } from "./components/Themes";
+import Toggle from "./components/Toggle";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const [theme, setTheme] = useState('dark');
+const themeToggler = () => {
+  theme === 'light' ? setTheme('dark') : setTheme('light')
 }
+return (
+  <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <>
+  <GlobalStyles/>
+ <div className='App'>
+  
+ <header className="App-header">
+  <Router>
+  <Toggle theme={theme} toggleTheme={themeToggler} />
+  <Navbar/>
+    <Routes>
+    <Route exact path='/' element={<Accueil/>}/>
+    <Route exact path='/favorites' element={<Favoris/>}/>
+    <Route exact path='/contact' element={<Contact/>}/>
+    </Routes>
+  </Router>
+  </header>
+ </div>
+  </>
+  </ThemeProvider>
+)}
 
 export default App;
