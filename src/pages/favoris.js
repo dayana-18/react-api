@@ -3,7 +3,7 @@ import React, { useState, useEffect }  from 'react';
 const Favoris = () =>{
   
   const [facts, setfacts] = useState([]);
-  const [id, setId] = useState(JSON.parse(localStorage.getItem("fact")));
+  const [id] = useState(JSON.parse(localStorage.getItem("fact")));
   console.log(id);
   
   useEffect(() => {

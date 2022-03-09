@@ -1,4 +1,4 @@
-import { FaStar,FaTrash } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import styled from "styled-components";
 
 export const Icon = styled(FaStar)`
