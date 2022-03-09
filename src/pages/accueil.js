@@ -1,6 +1,5 @@
 import React, { useState, useEffect }  from 'react';
 import { FaStar,FaTrash } from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
 
 export const Icon = styled(FaStar)`
@@ -20,14 +19,12 @@ export const Icon = styled(FaStar)`
 `;
 
 const Accueil = () => {
-  const [error, setError] = useState(null);
+      const [error, setError] = useState(null);
       const [isLoaded, setIsLoaded] = useState(false);
       const [facts, setfacts] = useState([]);
       const favorites = [];
-      function addToFavorites(fac)
-      {
-        favorites = fact
-      }
+      
+
       useEffect(() => {
             fetch("https://cat-fact.herokuapp.com/facts")
               .then(res => res.json())
@@ -56,7 +53,7 @@ const Accueil = () => {
                   {facts.map(fact => (
                   <tr key={fact._id}>
                     <td>{fact.text}</td>
-                    <td><button onClick={() => addToFavorites(fact)}></button></td>
+                    <td><button><Icon/></button></td>
                   </tr>
                   ))}
                 </tbody>
