@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from 'react';
-import { FaStar,FaTrash } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import styled from "styled-components";
 
 export const Icon = styled(FaStar)`
@@ -22,8 +22,6 @@ const Accueil = () => {
       const [error, setError] = useState(null);
       const [isLoaded, setIsLoaded] = useState(false);
       const [facts, setfacts] = useState([]);
-      const favorites = [];
-      
 
       useEffect(() => {
             fetch("https://cat-fact.herokuapp.com/facts")
