@@ -8,11 +8,14 @@ const Accueil = () => {
       const [facts, setfacts] = useState([]);
       
       function addToFavorites(fact) {
-        localStorage.setItem('fact', JSON.stringify(fact.id));
-        var retrievedFact = localStorage.getItem('fact');
-        console.log('retrievedFact: ', JSON.parse(retrievedFact));
-
+        const IdFact = fact._id;
+        const newIdFact = [...facts,IdFact];
+        setfacts(newIdFact);
       }
+
+      useEffect(() => {
+        localStorage.setItem("fact", JSON.stringify(facts));
+      }, [facts]);
 
       useEffect(() => {
             fetch("https://cat-fact.herokuapp.com/facts")
