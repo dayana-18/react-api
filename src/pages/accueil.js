@@ -1,27 +1,18 @@
 import React, { useState, useEffect }  from 'react';
-import { FaStar } from "react-icons/fa";
-import styled from "styled-components";
-
-export const Icon = styled(FaStar)`
-  color: rgb(84, 123, 175);
-  @media screen and (height: 480px; ) {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 75%);
-    cursor: pointer;
-  }
-  &:hover {
-    color: rgb(192, 132, 142)
-  }
-  width: 200px;
-`;
+import { Icon } from "./elements";
 
 const Accueil = () => {
+
       const [error, setError] = useState(null);
       const [isLoaded, setIsLoaded] = useState(false);
       const [facts, setfacts] = useState([]);
+      
+      function addToFavorites(fact) {
+        localStorage.setItem('fact', JSON.stringify(fact.id));
+        var retrievedFact = localStorage.getItem('fact');
+        console.log('retrievedFact: ', JSON.parse(retrievedFact));
+
+      }
 
       useEffect(() => {
             fetch("https://cat-fact.herokuapp.com/facts")
@@ -51,7 +42,7 @@ const Accueil = () => {
                   {facts.map(fact => (
                   <tr key={fact._id}>
                     <td>{fact.text}</td>
-                    <td><button><Icon/></button></td>
+                    <td><Icon onClick={() => addToFavorites(fact)}></Icon></td>
                   </tr>
                   ))}
                 </tbody>

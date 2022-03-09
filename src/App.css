@@ -44,14 +44,14 @@ p, li, div {
 }
 
 table{
-  table-layout: fixed;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tbl-content{
-  height:300px;
+  height:285px;
   overflow-x:auto;
   margin-top: 0px;
-  border: 1px solid grey;
 }
 
 td{
@@ -61,4 +61,10 @@ td{
   font-size: 20px;
   color: rgb(166, 206, 166);
   border-bottom: solid 1px grey;
+}
+
+.hidden{
+  background-color: transparent;
+  border-color: gray;
+  border-radius: 4px;
 }
