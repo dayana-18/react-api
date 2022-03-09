@@ -32,13 +32,13 @@ const Accueil = () => {
               )
         }, [])
   if (error) {
-        return <div>Erreur : {error.message}</div>;
+        return <div>Error : {error.message}</div>;
     } else if (!isLoaded) {
-        return <div>ça charge...</div>;
+        return <div>Loading...</div>;
     } else {
         return (
           <div>
-            <h3>Cat Facts !</h3>
+            <h3>Facts about cats !</h3>
             <div class="tbl-content">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tbody>
